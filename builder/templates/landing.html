@@ -34,22 +34,23 @@
     {% if landing_research %}
     <div class="row">
         <div class="container">
-            <h3 class="row-title">Latest Publications</h3>
-            {% for item in landing_research %}
-            <div class="research-item row-item">
-                <div class="title-row">
-                    <h4 class="title">{{ item.title }}</h4>
+            <div class="latest v-padded">
+                <h3 class="row-title">Latest Publications</h3>
+                {% for item in landing_research %}
+                <div class="research-item row-item">
+                    <div class="title-row">
+                        <h4 class="title">{{ item.title }}</h4>
+                    </div>
+                    <div class="authors">{{ item.authors }}</div>
+                    <div class="booktitle">{{ item.booktitle }}</div>
+                    <div class="link-buttons link-buttons-small">
+                        {{ item.links | markdown }}
+                    </div>
                 </div>
-                <div class="authors">{{ item.authors }}</div>
-                <div class="booktitle">{{ item.booktitle }}</div>
-                <div class="link-buttons link-buttons-small">
-                    {{ item.links | markdown }}
+                {% endfor %}
+                <div class="link-buttons link-buttons-large">
+                    <a class="more-button" href="/research.html">See All</a>
                 </div>
-            </div>
-            {% endfor %}
-            <div class="link-buttons link-buttons-large">
-                <a class="more-button" href="/research.html">See All</a>
-            </div>
             </div>
         </div>
     </div>
