@@ -9,13 +9,12 @@ from . import config
 
 SHEETS_URL_BASE = 'https://sheets.googleapis.com/v4/spreadsheets'
 RANGES = [
-    'Metadata!A1:B',
+    'Metadata!B2:C',
     'Announcements!A2:C',
     'Members!A2:H',
     'Research!A2:F',
     'Tags!A2:F',
     'Links!A2:G',
-    'Redirections!A2:B',
 ]
 
 def get_doc_id():
