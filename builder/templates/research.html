@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block head %}
+<script src="/assets/scripts/vue.min.js"></script>
+<script src="/assets/scripts/vue-markdown.js"></script>
+<script>
+    Vue.use(VueMarkdown);
+</script>
+{% endblock %}
+{% block main %}
+<noscript>
+    <div class="research" id="research">
+        {% with screen_background=data.metadata.research_background,screen_title='Research' %}
+        {% include 'screen.html' %}
+        {% endwith %}
+        {% for group in data.research %}
+        <div class="row">
+            <div class="container">
+                <div class="category v-padded">
+                    <h3 class="row-title">{{ group.title }}</h3>
+                    {% for item in group.rows %}
+                    <div class="research-item row-item">
+                        <div class="title-row">
+                            <h4 class="title">{{ item.title }}</h4>
+                        </div>
+                        <div class="authors">{{ item.authors }}</div>
+                        <div class="booktitle">{{ item.booktitle }}</div>
+                        <div class="link-buttons link-buttons-small">
+                            {{ item.links | markdown }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</noscript>
+<div class="research" id="research">
+    {% with screen_background=data.metadata.research_background,screen_title='Research' %}
+    {% include 'screen.html' %}
+    {% endwith %}
+    <div class="row">
+        <div class="container">
+            <div class="tag-selector v-padded">
+                <h3 class="row-title">Topics</h3>
+                <div class="link-buttons link-buttons-large">
+                    <a class="tag" :class="{ active: activeTagId === null }" @click="activeTagId = null">
+                        Show All
+                    </a>
+                    <a 
+                        class="tag" 
+                        v-for="tagId in Object.keys(tags)" 
+                        :key="tagId" 
+                        :class="{ active: activeTagId === tagId }"
+                        :style="{ backgroundColor: tags[tagId].color }" 
+                        @click="activeTagId = tagId"
+                    >
+                        [[ tags[tagId].title ]]
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" v-for="(group, i) in research" :key="i">
+        <div class="container">
+            <div class="category v-padded">
+                <h3 class="row-title">[[ group.title ]]</h3>
+                <template v-for="(item, i) in group.rows">
+                    <div class="research-item row-item" :class="{ hidden: isHidden(item.tags) }">
+                        <div class="title-row">
+                            <h4 class="title">[[ item.title ]]</h4>
+                            <template v-for="tagId in item.tags">
+                                <div class="tag" v-if="tagId in tags" :key="tagId" :style="{ backgroundColor: tags[tagId].color }">
+                                    [[ tags[tagId].tag ]]
+                                </div>
+                            </template>
+                        </div>
+                        <div class="authors">[[ item.authors ]]</div>
+                        <div class="booktitle">[[ item.booktitle ]]</div>
+                        <div class="link-buttons link-buttons-small">
+                            <vue-markdown :source="item.links" :breaks="false" :anchorAttributes="{ target: '_blank' }" />
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#research',
+        delimiters: ['[[', ']]'],
+        data: {
+            research: {{ data.research | jsonify | safe }},
+            tags: {{ data.tags | jsonify | safe }},
+            activeTagId: null,
+        },
+        methods: {
+            isHidden: function(tags) {
+                return (this.activeTagId !== null) && !tags.includes(this.activeTagId)
+            },
+        },
+    })
+</script>
+{% endblock %}

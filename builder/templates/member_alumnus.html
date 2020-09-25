@@ -1,0 +1,21 @@
+<div class="member alumnus row-card-item">
+    <div class="image" style="background-image:url({{ member.image }})">
+    </div>
+    <div class="text">
+        <div class="text-row">
+            <h4 class="text-item name">{{ member.name }}</h4>
+            <a class="text-item email" :href="mailto:{{ member.email }}">
+                {{ member.email }}
+            </a>
+            <div class="text-item grad">
+                {{ member.degree }}, {{ member.year }}
+            </div>
+        </div>
+        <div class="description">
+            {{ member.description | markdown }}
+        </div>
+        <div class="link-buttons link-buttons-small">
+            {{ member.links | markdown }}
+        </div>
+    </div>
+</div>

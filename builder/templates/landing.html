@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="home">
+    <section 
+        class="screen screen-large"
+        style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url({{ data.metadata.index_background }})"
+    >
+        <div class="content">
+            <h1>{{ data.metadata.title }} @ {{ data.metadata.instruction }}</h1><br />
+            <small>{{ data.metadata.subtitle }}</small>
+        </div>
+    </section>
+    {% if data.announcements %}
+    <div class="row">
+        <div class="container">
+            <div class="announcements v-padded">
+                <h3 class="row-title">Announcements</h3>
+                {% for announcement in data.announcements %}
+                <div class="announcement row-item">
+                    {% if announcement.title %}
+                    <h4 class="announcement-title">
+                        {{ announcement.title }}
+                    </h4>
+                    {% endif %}
+                    <div class="announcement-content">
+                        {{ announcement.content | markdown }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if landing_research %}
+    <div class="row">
+        <div class="container">
+            <h3 class="row-title">Latest Publications</h3>
+            {% for item in landing_research %}
+            <div class="research-item row-item">
+                <div class="title-row">
+                    <h4 class="title">{{ item.title }}</h4>
+                </div>
+                <div class="authors">{{ item.authors }}</div>
+                <div class="booktitle">{{ item.booktitle }}</div>
+                <div class="link-buttons link-buttons-small">
+                    {{ item.links | markdown }}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="link-buttons link-buttons-large">
+                <a class="more-button" href="/research.html">See All</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

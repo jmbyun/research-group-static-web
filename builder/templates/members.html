@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="members">
+    {% with screen_background=data.metadata.members_background,screen_title='Members' %}
+    {% include 'screen.html' %}
+    {% endwith %}
+    {% for group in data.members %}
+    <div class="row">
+        <div class="container">
+            <div class="group v-padded">
+                <h3 class="row-title">{{ group.title }}</h3>
+                {% for member in group.members %}
+                    {% if member.year %}
+                        {% include 'member_alumnus.html' %}
+                    {% else %}
+                        {% include 'member_current.html' %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

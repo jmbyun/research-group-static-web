@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="links">
+    {% with screen_background=data.metadata.links_background,screen_title='Links' %}
+    {% include 'screen.html' %}
+    {% endwith %}
+    {% for group in data.links %}
+    <div class="row">
+        <div class="container">
+            <div class="group v-padded">
+                <h3 class="row-title">{{ group.title }}</h3>
+                {% for link in group.rows %}
+                <div class="link-item row-card-item">
+                    <div class="title">{{ link.title }}</div>
+                    {% if link.full_title %}
+                    <div class="subtitle">{{ link.full_title }}</div>
+                    {% endif %}
+                    {% if link.event_month %}
+                    <div class="description">
+                        {% if link.call_month %}
+                        <p>Paper submission deadline is usually in {{ link.call_month }}.</p>
+                        {% endif %}
+                        {% if link.event_month %}
+                        <p>The conference is usually held in {{ link.event_month }}.</p>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    {% if link.url %}
+                    <div class="links">
+                        <a href="{{ link.url }}">Link</a>
+                    </div>
+                    {% elif link.query %}
+                    <div class="links">
+                        {% if link.show_this_year %}
+                        <a href="{{ link.this_year_url }}">
+                            {{ link.this_year_label }}
+                        </a>
+                        {% endif %}
+                        {% if link.show_next_year %}
+                        <a href="{{ link.next_year_url }}">
+                            {{ link.next_year_label }}
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

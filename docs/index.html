@@ -6,11 +6,202 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="/assets/images/logo.png">
+    <link rel="stylesheet" href="/assets/styles/index.css">
+    <link rel="stylesheet" href="/assets/styles/header.css">
+    <link rel="stylesheet" href="/assets/styles/screen.css">
+    <link rel="stylesheet" href="/assets/styles/footer.css">
     <title>Users &amp; Information Lab.</title>
+    
+    
 </head>
 
 <body>
-    Hello world
+    
+    <header class="header" :class="{ 'header-scrolled': scrolled  }" id="header">
+    <div class="header-content">
+        <div class="logo">
+            <!-- <div class="logo-drawing-container">
+                <div class="logo-drawing" ref="logo"></div>
+            </div> -->
+            <div class="logo-text">Users &amp; Information Lab.</div>
+        </div>
+        <div class="header-menu">
+            <a class="header-menu-item" href="/">
+                Home
+            </a>
+            <a class="header-menu-item" href="/members.html">
+                Members
+            </a>
+            <a class="header-menu-item" href="/research.html">
+                Research
+            </a>
+            <a class="header-menu-item" href="/links.html">
+                Links
+            </a>
+            <a class="header-menu-item" href="/contact.html">
+                Contact
+            </a>
+        </div>
+    </div>
+</header>
+    <div class="main">
+        
+<div class="home">
+    <section 
+        class="screen screen-large"
+        style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/assets/images/backgrounds/library.jpg)"
+    >
+        <div class="content">
+            <h1>Users &amp; Information Lab. @ KAIST</h1><br />
+            <small>Artificial Intelligence | Social Computing | Interactive Computing</small>
+        </div>
+    </section>
+    
+    <div class="row">
+        <div class="container">
+            <div class="announcements v-padded">
+                <h3 class="row-title">Announcements</h3>
+                
+                <div class="announcement row-item">
+                    
+                    <h4 class="announcement-title">
+                        Join U&amp;I Lab. (M.S. Student Spring 2021)
+                    </h4>
+                    
+                    <div class="announcement-content">
+                        <p>2021년 봄학기 전산학부 석사과정으로 입학하는 학생 중 U&amp;I Lab에 들어오길 희망하시는 분은 <strong>10월 4일 정오 (KST)</strong>까지 <a href="https://forms.gle/tDjTc17rks7dfyoc8">Form</a>을 작성해주세요.</p>
+<p>If you are entering KAIST School of Computing as a new MS student in Spring 2021 and would like to join U&amp;I Lab, please write the <a href="https://forms.gle/tDjTc17rks7dfyoc8">form</a> by <strong>noon 2020.10.04 (KST)</strong>.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="container">
+            <h3 class="row-title">Latest Publications</h3>
+            
+            <div class="research-item row-item">
+                <div class="title-row">
+                    <h4 class="title">Suicidal Risk Detection for Military Personnel</h4>
+                </div>
+                <div class="authors">Sungjoon Park, Kiwoong Park, Jaimeen Ahn, and Alice Oh</div>
+                <div class="booktitle">EMNLP (short) 2020</div>
+                <div class="link-buttons link-buttons-small">
+                    
+                </div>
+            </div>
+            
+            <div class="research-item row-item">
+                <div class="title-row">
+                    <h4 class="title">Context-Aware Answer Extraction in Question Answering</h4>
+                </div>
+                <div class="authors">Yeon Seonwoo, Ji-Hoon Kim, Jung-Woo Ha, and Alice Oh</div>
+                <div class="booktitle">EMNLP (long) 2020</div>
+                <div class="link-buttons link-buttons-small">
+                    
+                </div>
+            </div>
+            
+            <div class="research-item row-item">
+                <div class="title-row">
+                    <h4 class="title">Detecting Contract Cheaters in Online Programming Classes with Keystroke Dynamics</h4>
+                </div>
+                <div class="authors">Jeongmin Byun, Jungkook Park, and Alice Oh</div>
+                <div class="booktitle">Proceedings of the Seventh ACM Conference on Learning @ Scale (L@S 2020, WiP)</div>
+                <div class="link-buttons link-buttons-small">
+                    <p><a href="https://dl.acm.org/doi/abs/10.1145/3386527.3406726">Link</a></p>
+                </div>
+            </div>
+            
+            <div class="research-item row-item">
+                <div class="title-row">
+                    <h4 class="title">Cocode: Co-learner Screen Sharing for Social Translucence in Online Programming Courses</h4>
+                </div>
+                <div class="authors">Jeongmin Byun, Jungkook Park, and Alice Oh</div>
+                <div class="booktitle">Extended Abstracts of the 2020 CHI Conference on Human Factors in Computing Systems (CHI 2020, Interactivity)</div>
+                <div class="link-buttons link-buttons-small">
+                    <p><a href="https://dl.acm.org/doi/abs/10.1145/3334480.3383154">Link</a></p>
+                </div>
+            </div>
+            
+            <div class="research-item row-item">
+                <div class="title-row">
+                    <h4 class="title">Speaker Sensitive Response Evaluation Model</h4>
+                </div>
+                <div class="authors">JinYeong Bak, and Alice Oh </div>
+                <div class="booktitle">Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (ACL 2020)</div>
+                <div class="link-buttons link-buttons-small">
+                    <p><a href="https://www.aclweb.org/anthology/2020.acl-main.568/">PDF</a>
+<a href="https://github.com/NoSyu/SSREM">Code</a></p>
+                </div>
+            </div>
+            
+            <div class="research-item row-item">
+                <div class="title-row">
+                    <h4 class="title">Supervised Graph Attention Network for Semi-Supervised Node Classification</h4>
+                </div>
+                <div class="authors">Dongkwan Kim, and Alice Oh</div>
+                <div class="booktitle">Workshop on Graph Representation Learning at NeurIPS 2019</div>
+                <div class="link-buttons link-buttons-small">
+                    <p><a href="https://grlearning.github.io/papers/103.pdf">PDF</a></p>
+                </div>
+            </div>
+            
+            <div class="research-item row-item">
+                <div class="title-row">
+                    <h4 class="title">Additive Compositionality of Word Vectors</h4>
+                </div>
+                <div class="authors">Yeon Seonwoo, Sungjoon Park, Dongkwan Kim, and Alice Oh</div>
+                <div class="booktitle">Workshop on Noisy User-generated Text at EMNLP 2019</div>
+                <div class="link-buttons link-buttons-small">
+                    <p><a href="https://www.aclweb.org/anthology/D19-5551.pdf">PDF</a>
+<a href="https://drive.google.com/file/d/1E_rk3KFMf3M2i1rxdQ6NtJEpGlDVqQXu/view?usp=sharing">Poster</a>
+<a href="https://github.com/yeonsw/OLIVE">Code</a></p>
+                </div>
+            </div>
+            
+            <div class="link-buttons link-buttons-large">
+                <a class="more-button" href="/research.html">See All</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+    </div>
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-item">
+                <div class="footer-text">
+                    &copy; Copyright <span id="footer-year">2020</span> | Users &amp; Information Lab.
+                </div>
+                <div class="footer-text pre-wrap">U&amp;I Lab., Room 4417, E3-1 Computer Science Building,
+KAIST, 291 Daehak-ro, Yuseong-gu, Daejeon 34141, South Korea</div>
+            </div>
+            <div class="footer-item">
+                <div class="footer-text">
+                    <a href="https://github.com/uilab-github/uilab-github.github.io">
+                        Repository for this Website
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="https://docs.google.com/spreadsheets/d/1v2JBn1EHa20kcwz5rtszoNmjx9Znqzk-dGMhKw1m3vE/edit?usp=sharing">
+                        Edit Content
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('footer-year').innerHTML = (new Date()).getFullYear();
+    </script>
+</footer>
+    
+    <script src="/assets/scripts/index.js"></script>
 </body>
 
 </html>

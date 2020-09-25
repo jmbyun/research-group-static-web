@@ -39,10 +39,21 @@ def load_ranges(doc_id, ranges):
     data_dict = json.loads(data)
     return [r['values'] for r in data_dict['valueRanges']]
 
+def row_to_dict(row, keys, start_at=0):
+    i = start_at
+    result_dict = {}
+    for key in keys:
+        if len(row) > i:
+            result_dict[key] = row[i]
+        else:
+            result_dict[key] = ''
+        i += 1
+    return result_dict
+
 def conv_metadata(table):
     items = {}
     for row in table:
-        items[row[0]] = row[1]
+        items[row[0]] = row[1] if len(row) > 1 else ''
     return items
 
 def conv_announcements(table):
@@ -69,15 +80,10 @@ def conv_members(table):
             if group:
                 groups.append(group)
             group = {'title': title, 'members': []}
-        group['members'].append({
-            'name': row[1],
-            'email': row[2],
-            'image': row[3],
-            'description': row[4],
-            'links': row[5],
-            'degree': row[6],
-            'year': row[7],
-        })
+        member = row_to_dict(row, ['name', 'email', 'image', 'description', 'links', 'degree', 'year'], 1)
+        group['members'].append(member)
+    if group:
+        groups.append(group)
     return groups
 
 def conv_research(table):
@@ -88,20 +94,19 @@ def conv_research(table):
         if group is None or group['title'] != title:
             if group:
                 groups.append(group)
-            group = {'title': title, 'items': []}
-        group['items'].append({
-            'title': row[1],
-            'authors': row[2],
-            'booktitle': row[3],
-            'links': row[4],
-            'tags': [tag.strip() for tag in (row[5] or '').split(',') if tag]
-        })
+            group = {'title': title, 'rows': []}
+        item = row_to_dict(row, ['title', 'authors', 'booktitle', 'links', 'tags'], 1)            
+        if 'tags' in item:
+            item['tags'] = [tag.strip() for tag in (item['tags'] or '').split(',') if tag]
+        group['rows'].append(item)
+    if group:
+        groups.append(group)
     return groups
 
 def conv_tags(table):
     tags = {}
     for row in table:
-        items[row[0]] = {
+        tags[row[0]] = {
             'title': row[1],
             'tag': row[2],
             'color': row[3],
@@ -116,15 +121,11 @@ def conv_links(table):
         if group is None or group['title'] != title:
             if group:
                 groups.append(group)
-            group = {'title': title, 'items': []}
-        group['items'].append({
-            'title': row[1],
-            'full_title': row[2],
-            'url': row[3],
-            'query': row[4],
-            'call_month': row[5],
-            'event_month': row[6],
-        })
+            group = {'title': title, 'rows': []}
+        item = row_to_dict(row, ['title', 'full_title', 'url', 'query', 'call_month', 'event_month'], 1)
+        group['rows'].append(item)
+    if group:
+        groups.append(group)
     return groups
 
 def load_data():
@@ -135,7 +136,7 @@ def load_data():
         'announcements': conv_announcements(tables[1]),
         'members': conv_members(tables[2]),
         'research': conv_research(tables[3]),
-        'tags': conv_tags(tables[4),
+        'tags': conv_tags(tables[4]),
         'links': conv_links(tables[5]),
     }
 

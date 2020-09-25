@@ -1,0 +1,18 @@
+<div class="row-card-item">
+    <div class="member">
+        <div class="member-image" style="background-image:url({{ member.image }})">
+        </div>
+        <div class="member-text">
+            <h4 class="member-name">{{ member.name }}</h4>
+            <a class="member-email" :href="mailto:{{ member.email }}">
+                {{ member.email }}
+            </a>
+            <div class="member-description">
+                {{ member.description | markdown }}
+            </div>
+            <div class="link-buttons">
+                {{ member.links | markdown }}
+            </div>
+        </div>
+    </div>
+</div>

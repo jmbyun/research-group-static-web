@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/assets/images/logo.png">
+    <link rel="stylesheet" href="/assets/styles/index.css">
+    <link rel="stylesheet" href="/assets/styles/header.css">
+    <link rel="stylesheet" href="/assets/styles/screen.css">
+    <link rel="stylesheet" href="/assets/styles/footer.css">
+    <title>Users &amp; Information Lab.</title>
+    
+    
+</head>
+
+<body>
+    
+    <header class="header" :class="{ 'header-scrolled': scrolled  }" id="header">
+    <div class="header-content">
+        <div class="logo">
+            <!-- <div class="logo-drawing-container">
+                <div class="logo-drawing" ref="logo"></div>
+            </div> -->
+            <div class="logo-text">Users &amp; Information Lab.</div>
+        </div>
+        <div class="header-menu">
+            <a class="header-menu-item" href="/">
+                Home
+            </a>
+            <a class="header-menu-item" href="/members.html">
+                Members
+            </a>
+            <a class="header-menu-item" href="/research.html">
+                Research
+            </a>
+            <a class="header-menu-item" href="/links.html">
+                Links
+            </a>
+            <a class="header-menu-item" href="/contact.html">
+                Contact
+            </a>
+        </div>
+    </div>
+</header>
+    <div class="main">
+        
+<div class="contact home">
+    
+    <section class="screen" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/assets/images/backgrounds/library.jpg)">
+    <div class="content">
+        <h2>Contact</h2><br />
+        <small>Users &amp; Information Lab. @ KAIST</small>
+    </div>
+</section>
+    
+    <div class="row">
+        <div class="container">
+            <div class="contact v-padded">
+                <h3 class="row-title">Address</h3>
+                <div class="text pre-wrap">U&amp;I Lab., Room 4417, E3-1 Computer Science Building,
+KAIST, 291 Daehak-ro, Yuseong-gu, Daejeon 34141, South Korea</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="contact v-padded">
+                <h3 class="row-title">Map</h3>
+                <iframe 
+                    class="map-iframe"
+                    src="https://www.google.com/maps/embed?region=KR&amp;language=en&amp;pb=!1m18!1m12!1m3!1d803.1790312985661!2d127.36539104087727!3d36.36765437275756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDIyJzA1LjAiTiAxMjfCsDIxJzU2LjEiRQ!5e0!3m2!1sen!2skr!4v1569390740572!5m2!1sen!2skr"
+                    frameborder="0" 
+                    allowfullscreen=""
+                ></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-item">
+                <div class="footer-text">
+                    &copy; Copyright <span id="footer-year">2020</span> | Users &amp; Information Lab.
+                </div>
+                <div class="footer-text pre-wrap">U&amp;I Lab., Room 4417, E3-1 Computer Science Building,
+KAIST, 291 Daehak-ro, Yuseong-gu, Daejeon 34141, South Korea</div>
+            </div>
+            <div class="footer-item">
+                <div class="footer-text">
+                    <a href="https://github.com/uilab-github/uilab-github.github.io">
+                        Repository for this Website
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="https://docs.google.com/spreadsheets/d/1v2JBn1EHa20kcwz5rtszoNmjx9Znqzk-dGMhKw1m3vE/edit?usp=sharing">
+                        Edit Content
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('footer-year').innerHTML = (new Date()).getFullYear();
+    </script>
+</footer>
+    
+    <script src="/assets/scripts/index.js"></script>
+</body>
+
+</html>

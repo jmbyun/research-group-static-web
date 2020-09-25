@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="contact home">
+    {% with screen_background=data.metadata.contact_background,screen_title='Contact' %}
+    {% include 'screen.html' %}
+    {% endwith %}
+    <div class="row">
+        <div class="container">
+            <div class="contact v-padded">
+                <h3 class="row-title">Address</h3>
+                <div class="text pre-wrap">{{ data.metadata.address }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="contact v-padded">
+                <h3 class="row-title">Map</h3>
+                <iframe 
+                    class="map-iframe"
+                    src="{{ data.metadata.map_iframe_src }}"
+                    frameborder="0" 
+                    allowfullscreen=""
+                ></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

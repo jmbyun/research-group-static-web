@@ -1,0 +1,43 @@
+.screen {
+  padding: 8rem 1rem 4rem 1rem;
+  background-image: linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
+        ),
+        url("../assets/kaist.jpg");
+  background-attachment: scroll;
+  background-origin: padding-box;
+  background-position: center 85%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 120;
+}
+.screen-large {
+  padding: 9.5rem 1rem 5.5rem 1rem;
+}
+.screen .content {
+  margin: 0 auto;
+  max-width: var(--max-width);
+  color: var(--header-text-highlight-color);
+  text-align: center;
+}
+.screen .content h1 {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.screen .content h2 {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.screen .content small {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: normal;
+}

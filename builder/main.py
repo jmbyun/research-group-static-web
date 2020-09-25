@@ -28,6 +28,3 @@ def build():
     init_build_path()
     render_pages()
     copy_assets()
-    
-
-    
