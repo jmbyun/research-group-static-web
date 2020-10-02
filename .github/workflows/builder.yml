@@ -18,12 +18,6 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: test-ls
-        run: ls
-
-      - name: test-ls2
-        run: ls ./research-group-static-web
-
       - name: Build the website with the latest contents
         uses: ./action-build
 
