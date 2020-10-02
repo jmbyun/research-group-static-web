@@ -1,7 +1,5 @@
 FROM python:3.7-buster
 
-WORKDIR $GITHUB_WORKSPACE
-
 # Install Git
 RUN apt-get update \
     && apt-get install -y git
