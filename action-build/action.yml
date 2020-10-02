@@ -1,0 +1,21 @@
+name: "Build Static Website"
+description: "Build a static website based on the given Google Sheets document"
+author: "jmbyun91@gmail.com"
+
+inputs:
+  DATA_URL:
+    description: "Which Google Sheets document to get information from"
+    required: false
+    default: "https://docs.google.com/spreadsheets/d/1EDLlUuY2Ia5MKNbCTOftxxSxBaK3C9pRFOIUvMY30eY/edit?usp=sharing"
+  API_KEY:
+    description: "Google API key to use when fetching contents from Google documents"
+    required: false
+    default: "AIzaSyC6dzKyPLK2TsfjiWtxytUE7LQEr64QPwc"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "box"
+  color: "blue"
