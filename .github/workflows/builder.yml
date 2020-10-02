@@ -20,6 +20,8 @@ jobs:
 
       - name: Build the website with the latest contents
         uses: ./action-build
+        with:
+          API_KEY: ${{ secrets.API_KEY }}
 
       - name: Commit changed files
         run: |
