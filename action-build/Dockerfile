@@ -1,5 +1,8 @@
 FROM python:3.7-buster
 
+VOLUME . /app
+WORKDIR /app
+
 # Install Git
 RUN apt-get update \
     && apt-get install -y git
