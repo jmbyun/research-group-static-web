@@ -15,10 +15,16 @@ RANGES = [
     'Research!A2:F',
     'Tags!A2:F',
     'Links!A2:G',
+    'Pages!A2:C',
+    'Redirects!A2:B',
+    'Personal!A2:B',
+]
+PERSONAL_RANGES = [
+    'Website!B2:C',
+    'Contents!A2:B',
 ]
 
-def get_doc_id():
-    data_url = config.DATA_URL
+def get_doc_id(data_url):
     tokens = data_url.split('/')
     doc_id = ''
     # Use a heuristic method for finding document ID from the URL.
@@ -127,8 +133,68 @@ def conv_links(table):
         groups.append(group)
     return groups
 
+def conv_personal_website(table):
+    items = {}
+    for row in table:
+        if not row or not row[0].strip():
+            continue
+        items[row[0]] = row[1] if len(row) > 1 else ''
+    return items
+
+def conv_personal_contents(table):
+    contents = []
+    for row in table:
+        if len(row) < 2 or not row[0].strip():
+            continue
+        contents.append({'title': row[0], 'content': row[1]})
+    return contents
+
+def load_personal(table):
+    websites = []
+    for row in table:
+        pathname = row[0].strip()
+        url = row[1].strip()
+        if not pathname or not url:
+            continue
+        websites.append({'path': pathname, 'url': url})
+    
+    for website in websites:
+        data_url = website['url']
+        doc_id = get_doc_id(data_url)
+        tables = load_ranges(doc_id, PERSONAL_RANGES)
+        website['website'] = conv_personal_website(tables[0])
+        website['contents'] = conv_personal_contents(tables[1])
+
+    return websites
+
+def conv_pages(table):
+    pages = []
+    for row in table:
+        if len(row) < 3 or not row[0].strip():
+            continue
+        pathname = row[0].strip()
+        title = row[1].strip()
+        content = row[2]
+        if not pathname or not title or not content:
+            continue
+        pages.append({'path': pathname, 'title': title, 'content': content})
+    return pages
+
+def conv_redirects(table):
+    redirects = []
+    for row in table:
+        if len(row) < 2 or not row[0].strip():
+            continue
+        pathname = row[0].strip()
+        url = row[1].strip()
+        if not pathname or not url:
+            continue
+        redirects.append({'path': pathname, 'url': url})
+    return redirects
+
 def load_data():
-    doc_id = get_doc_id()
+    data_url = config.DATA_URL
+    doc_id = get_doc_id(data_url)
     tables = load_ranges(doc_id, RANGES)
     return {
         'website': conv_website(tables[0]),
@@ -137,5 +203,8 @@ def load_data():
         'research': conv_research(tables[3]),
         'tags': conv_tags(tables[4]),
         'links': conv_links(tables[5]),
+        'pages': conv_pages(tables[6]),
+        'redirects': conv_redirects(tables[7]),
+        'personal': load_personal(tables[8]),
     }
 

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="page home">
+    {% with screen_background=data.website.page_background,screen_title=title %}
+    {% include 'screen.html' %}
+    {% endwith %}
+    <div class="row">
+        <div class="container">
+            <div class="v-padded">
+                {{ content | markdown }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

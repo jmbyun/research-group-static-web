@@ -55,4 +55,16 @@ def render_contact(data):
     template = env.get_template('contact.html')
     return template.render(data=data)
 
+def render_page(data, page):
+    template = env.get_template('page.html')
+    return template.render(data=data, title=page['title'], content=page['content'])
+
+def render_redirect(data, redirect):
+    template = env.get_template('redirect.html')
+    return template.render(data=data, url=redirect['url'])
+
+def render_personal_website(data, website):
+    template = env.get_template('personal_website.html')
+    return template.render(data=data, website=website['website'], contents=website['contents'])
+
 init_env()

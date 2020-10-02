@@ -1,0 +1,10 @@
+<html>
+    <body>
+        Redirecting to <a href="{{ url }}">{{ url }}</a>...
+        <script>
+            setTimeout(function() {
+                window.location.href = '{{ url }}';
+            }, 100);
+        </script>
+    </body>
+</html>

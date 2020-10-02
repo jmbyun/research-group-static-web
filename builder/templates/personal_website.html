@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>{{ website.name }}</title>
+
+    <link rel="stylesheet" href="/assets/styles/github-light.css">
+    <link rel="stylesheet" href="/assets/styles/personal.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ website.name }}</h1>
+            <img src="{{ website.image }}" style="width:190px;"><br />
+            {{ website.contact | markdown }}
+        </header>
+
+        <section class="content">
+            {% for section in contents %}
+            {{ section.content | markdown }}
+            {% endfor %}
+        </section>
+    </div>
+</body>
+
+</html>
