@@ -10,9 +10,13 @@ This website is designed to update its contents every 30 minutes based on [a Goo
 
 1. Configure the repository to publish a GitHub Pages site from a */docs* folder onh the *master* branch. Read [this document](https://docs.github.com/en/enterprise/2.14/user/articles/configuring-a-publishing-source-for-github-pages#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch) if you need help.
 
+1. Configure a custom domain for your website if you need to. Read [this document](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site) if you need help.
+
 1. Create a new Google Sheets document to store your website contents. Set `DATA_URL` value in the file *[builder/config.py](builder/config.py)*. Follow the instructions below for this.
 
 1. Get a valid Google API key to use when downloading the website contents. Set the key as a encrypted secret `API_KEY`. Follow the instructions below for this.
+
+1. Voilà! You have 
 
 ### Create a data source document
 
@@ -34,7 +38,7 @@ The website builder in this project needs a valid Google API key to download web
 
 1. Get an API key from [Google Developers Console](https://console.developers.google.com/). Read [this answer](https://stackoverflow.com/questions/46583052/http-google-sheets-api-v4-how-to-access-without-oauth-2-0/46583300#46583300) from a question in Stack Overflow to see how to create an API key and enable its use for Google Sheets APIs.
 
-1. Set your API key as a secret value `API_KEY`. [Read this doucment](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) to see how to add encrypted secrets for a GitHub repository.
+1. Set your API key as a secret value `API_KEY`. Read [this doucment](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) to see how to add encrypted secrets for a GitHub repository.
 
 ## Acknowledgements
 
