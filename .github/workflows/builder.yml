@@ -26,8 +26,18 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add docs/\*
-          git commit -m "build the website with the latest source data" -a
-
+          set +e
+          git status | grep modified
+          if [ $? -eq 0 ]
+          then
+              set -e
+              git commit -am "build the website with the latest source data - $(date)"
+              git push
+          else
+              set -e
+              echo "No changes since last run"
+          fi
+          
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
