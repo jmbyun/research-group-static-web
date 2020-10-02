@@ -4,7 +4,7 @@ VOLUME . /app
 WORKDIR /app
 
 # Install Python dependencies
-RUN pip3 install -r research-group-static-web/requirements.txt
+RUN pip3 install -r requirements.txt
 
-# Build the website
-RUN python3 research-group-static-web/build.py
+# Run the script
+ENTRYPOINT ["/entrypoint.sh"]
