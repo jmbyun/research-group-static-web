@@ -5,7 +5,7 @@ RUN apt-get update \
     && apt-get install -y git
 
 # Install Python dependencies
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r research-group-static-web/requirements.txt
 
 # Build the website
-RUN python3 build.py
+RUN python3 research-group-static-web/build.py
