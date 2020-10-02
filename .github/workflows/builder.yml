@@ -21,6 +21,13 @@ jobs:
       - name: Build the website with the latest contents
         uses: ./action-build
 
+      - name: Commit changed files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add docs/\*
+          git commit -m "build the website with the latest source data" -a
+
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
