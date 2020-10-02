@@ -6,7 +6,6 @@ inputs:
   API_KEY:
     description: "Google API key to use when fetching contents from Google documents"
     required: false
-    default: "AIzaSyC6dzKyPLK2TsfjiWtxytUE7LQEr64QPwc"
 
 runs:
   using: "docker"
