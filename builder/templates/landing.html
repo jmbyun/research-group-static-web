@@ -3,11 +3,11 @@
 <div class="home">
     <section 
         class="screen screen-large"
-        style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url({{ data.metadata.index_background }})"
+        style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url({{ data.website.index_background }})"
     >
         <div class="content">
-            <h1>{{ data.metadata.title }} @ {{ data.metadata.instruction }}</h1><br />
-            <small>{{ data.metadata.subtitle }}</small>
+            <h1>{{ data.website.title }} @ {{ data.website.instruction }}</h1><br />
+            <small>{{ data.website.subtitle }}</small>
         </div>
     </section>
     {% if data.announcements %}

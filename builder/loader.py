@@ -9,7 +9,7 @@ from . import config
 
 SHEETS_URL_BASE = 'https://sheets.googleapis.com/v4/spreadsheets'
 RANGES = [
-    'Metadata!B2:C',
+    'Website!B2:C',
     'Announcements!A2:C',
     'Members!A2:H',
     'Research!A2:F',
@@ -49,7 +49,7 @@ def row_to_dict(row, keys, start_at=0):
         i += 1
     return result_dict
 
-def conv_metadata(table):
+def conv_website(table):
     items = {}
     for row in table:
         items[row[0]] = row[1] if len(row) > 1 else ''
@@ -131,7 +131,7 @@ def load_data():
     doc_id = get_doc_id()
     tables = load_ranges(doc_id, RANGES)
     return {
-        'metadata': conv_metadata(tables[0]),
+        'website': conv_website(tables[0]),
         'announcements': conv_announcements(tables[1]),
         'members': conv_members(tables[2]),
         'research': conv_research(tables[3]),

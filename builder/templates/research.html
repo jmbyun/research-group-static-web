@@ -9,7 +9,7 @@
 {% block main %}
 <noscript>
     <div class="research" id="research">
-        {% with screen_background=data.metadata.research_background,screen_title='Research' %}
+        {% with screen_background=data.website.research_background,screen_title='Research' %}
         {% include 'screen.html' %}
         {% endwith %}
         {% for group in data.research %}
@@ -36,7 +36,7 @@
     </div>
 </noscript>
 <div class="research" id="research">
-    {% with screen_background=data.metadata.research_background,screen_title='Research' %}
+    {% with screen_background=data.website.research_background,screen_title='Research' %}
     {% include 'screen.html' %}
     {% endwith %}
     <div class="row">
