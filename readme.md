@@ -10,7 +10,7 @@ This project is designed to update its website contents in *[docs](docs)* folder
 
 **Do NOT directly modify the contents in *[docs](docs)* folder**, since the contents of that folder gets auto-updated every 30 minutes.
 
-## How do I upload static files to this website?
+## How to upload static files to this website
 
 If you need to upload image files or any other static files to use in the website to this repository, please put your files in *[assets](assets)* folder. All files in the folder will be copied to *[docs/assets](docs/assets)* when other website contents get updated. 
 
