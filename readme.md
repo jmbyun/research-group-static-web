@@ -4,11 +4,21 @@ This is a static website for a research group, hosted as GitHub Pages.
 
 This website is designed to update its contents every 30 minutes based on [a Google Sheets document](https://docs.google.com/spreadsheets/d/1EDLlUuY2Ia5MKNbCTOftxxSxBaK3C9pRFOIUvMY30eY/edit?usp=sharing) with scheduled GitHub Actions jobs.
 
+## How does this website work?
+
+This project is designed to update its website contents in *[docs](docs)* folder every 30 minutes with scheduled GitHub Actions jobs defined in this [file](.github/workflows/builder.yml). The website contents also get updated when you push something into the website. 
+
+**Do NOT directly modify the contents in *[docs](docs)* folder**, since the contents of that folder gets auto-updated every 30 minutes.
+
+## How do I upload static files to this website?
+
+If you need to upload image files or any other static files to use in the website to this repository, please put your files in *[assets](assets)* folder. All files in the folder will be copied to *[docs/assets](docs/assets)* when other website contents get updated. 
+
 ## How to create your own website from this
 
 1. Fork this repository to your account.
 
-1. Configure the repository to publish a GitHub Pages site from a */docs* folder onh the *master* branch. Read [this document](https://docs.github.com/en/enterprise/2.14/user/articles/configuring-a-publishing-source-for-github-pages#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch) if you need help.
+1. Configure the repository to publish a GitHub Pages site from a *docs* folder onh the *master* branch. Read [this document](https://docs.github.com/en/enterprise/2.14/user/articles/configuring-a-publishing-source-for-github-pages#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch) if you need help.
 
 1. Configure a custom domain for your website if you need to. Read [this document](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site) if you need help.
 

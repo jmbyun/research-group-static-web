@@ -4,8 +4,17 @@ import shutil
 from . import config, loader, urls
 
 def init_build_path():
-    if not os.path.exists(config.BUILD_PATH):
-        os.makedirs(config.BUILD_PATH)
+    cname_path = os.path.join(config.BUILD_PATH, 'CNAME')
+    cname_content = None
+    if os.path.exists(cname_path):
+        with open(cname_path, 'r') as f:
+            cname_content = f.read()
+    if os.path.exists(config.BUILD_PATH):
+        shutil.rmtree(config.BUILD_PATH)
+    os.makedirs(config.BUILD_PATH)
+    if cname_content is not None:
+        with open(cname_path, 'w') as f:
+            f.write(cname_content)
 
 def render_pages():
     data = loader.load_data()
